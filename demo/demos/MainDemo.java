@@ -9,7 +9,10 @@ import io.datafx.controller.flow.container.DefaultFlowContainer;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class MainDemo extends Application {
@@ -36,8 +39,11 @@ public class MainDemo extends Application {
 		flowContext = new ViewFlowContext();
 		flowContext.register("Stage", stage);
 		flow.createHandler(flowContext).start(container);
-		
-		Scene scene = new Scene(new JFXDecorator(stage, container.getView()), 800, 800);
+		           JFXDecorator jfxDecorator =new JFXDecorator(stage, container.getView());
+        jfxDecorator.setFullBtnVisible(true);
+        jfxDecorator.getBorderPane().setStyle("-fx-background-color: #039be5");
+        jfxDecorator.getBorderPane().setCenter(new Group(new ImageView(new Image("http://www.logospike.com/wp-content/uploads/2015/06/Batman_Logo_01.png"))));
+		Scene scene = new Scene(jfxDecorator, 800, 800);
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-fonts.css").toExternalForm());
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-design.css").toExternalForm());
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-main-demo.css").toExternalForm());

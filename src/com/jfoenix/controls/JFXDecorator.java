@@ -36,18 +36,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.BorderWidths;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -82,7 +71,20 @@ public class JFXDecorator extends VBox {
 	public JFXDecorator(Stage stage, Node node){
 		this(stage,node,true,true,true);
 	}
-	
+
+    private JFXButton btnFull;
+    private BorderPane borderPane = new BorderPane();
+
+    public void setFullBtnVisible(boolean b){
+        if(btnFull != null){
+            btnFull.setVisible(b);
+        }
+    }
+
+    public BorderPane getBorderPane(){
+        return borderPane;
+    }
+
 	public JFXDecorator(Stage stage, Node node, boolean fullScreen, boolean max, boolean min) {
 		super();
 		primaryStage = stage;
@@ -103,7 +105,7 @@ public class JFXDecorator extends VBox {
 		SVGGlyph close = new SVGGlyph(0, "CLOSE", "M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z", Color.WHITE);
 		close.setSize(12, 12);
 		
-		JFXButton btnFull = new JFXButton();
+		btnFull = new JFXButton();
 		btnFull.getStyleClass().add("jfx-decorator-button");
 		btnFull.setCursor(Cursor.HAND);
 		btnFull.setOnAction((action)->primaryStage.setFullScreen(!primaryStage.isFullScreen()));
@@ -150,7 +152,8 @@ public class JFXDecorator extends VBox {
 //			return new Background(new BackgroundFill(decoratorColor.get(), CornerRadii.EMPTY, Insets.EMPTY));
 //		}, decoratorColor));
 		
-		
+
+
 		buttonsContainer.setPadding(new Insets(4));		
 		buttonsContainer.setAlignment(Pos.CENTER_RIGHT);
 		// customize decorator buttons
@@ -184,7 +187,10 @@ public class JFXDecorator extends VBox {
 		clip.widthProperty().bind(((Region)node).widthProperty());
 		clip.heightProperty().bind(((Region)node).heightProperty());
 		node.setClip(clip);
-		this.getChildren().addAll(buttonsContainer,contentPlaceHolder);
+
+        borderPane.setRight(buttonsContainer);
+
+        this.getChildren().addAll(borderPane,contentPlaceHolder);
 
 		
 		
