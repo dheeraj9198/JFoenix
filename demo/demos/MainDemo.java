@@ -13,6 +13,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MainDemo extends Application {
@@ -42,7 +43,7 @@ public class MainDemo extends Application {
 		           JFXDecorator jfxDecorator =new JFXDecorator(stage, container.getView());
         jfxDecorator.setFullBtnVisible(true);
         jfxDecorator.getBorderPane().setStyle("-fx-background-color: #039be5");
-        jfxDecorator.getBorderPane().setCenter(new Group(new ImageView(new Image("http://www.logospike.com/wp-content/uploads/2015/06/Batman_Logo_01.png"))));
+        jfxDecorator.getBorderPane().setCenter(new Group(new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/ic_collapse.png")))));
 		Scene scene = new Scene(jfxDecorator, 800, 800);
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-fonts.css").toExternalForm());
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-design.css").toExternalForm());

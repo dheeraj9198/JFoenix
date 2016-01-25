@@ -190,6 +190,10 @@ public class JFXDecorator extends VBox {
 
         borderPane.setRight(buttonsContainer);
 
+        StackPane stackPane = new StackPane();
+        stackPane.setMinWidth(buttonsContainer.getMinWidth());
+        borderPane.setLeft(stackPane);
+
         this.getChildren().addAll(borderPane,contentPlaceHolder);
 
 		
