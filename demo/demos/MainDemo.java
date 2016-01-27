@@ -41,7 +41,7 @@ public class MainDemo extends Application {
 		flowContext.register("Stage", stage);
 		flow.createHandler(flowContext).start(container);
 		           JFXDecorator jfxDecorator =new JFXDecorator(stage, container.getView());
-        jfxDecorator.setFullBtnVisible(true);
+        jfxDecorator.setFullBtnVisible(false);
         jfxDecorator.getBorderPane().setStyle("-fx-background-color: #039be5");
         jfxDecorator.getBorderPane().setCenter(new Group(new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/ic_collapse.png")))));
 		Scene scene = new Scene(jfxDecorator, 800, 800);
