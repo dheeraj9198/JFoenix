@@ -29,6 +29,8 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -192,6 +194,12 @@ public class JFXDecorator extends VBox {
 
         StackPane stackPane = new StackPane();
         stackPane.setMinWidth(buttonsContainer.getMinWidth());
+		buttonsContainer.widthProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+				stackPane.setPrefWidth(t1.doubleValue());
+			}
+		});
         borderPane.setLeft(stackPane);
 
         this.getChildren().addAll(borderPane,contentPlaceHolder);

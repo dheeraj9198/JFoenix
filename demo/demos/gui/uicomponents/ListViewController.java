@@ -6,7 +6,10 @@ import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 import javax.annotation.PostConstruct;
@@ -24,7 +27,7 @@ public class ListViewController {
 	@FXML private JFXListView<?> list1;
 	@FXML private JFXListView<?> list2;
 	@FXML private JFXListView<?> subList;
-	
+
 	@FXML private JFXButton button3D;
 	@FXML private JFXButton collapse;
 	@FXML private JFXButton expand;
@@ -42,10 +45,20 @@ public class ListViewController {
 			list1.depthProperty().set(val);
 			list2.depthProperty().set(val);
 		});
-		
+
 		expand.setOnMouseClicked((e)->list2.expandedProperty().set(true));
 		collapse.setOnMouseClicked((e)->list2.expandedProperty().set(false));
 		list1.depthProperty().set(1);
+
+
+		JFXListView<String> jfxListView1 = new JFXListView<String>();
+		jfxListView1.setGroupnode(new Label("head"));
+
+		ObservableList<String> items = FXCollections.observableArrayList (
+				"Single", "Double", "Suite", "Family App");
+		jfxListView1.setItems(items);
+		jfxListView1.setId("dheeraj");
+		list1.addSublist(jfxListView1,0);
 	}
 	
 	

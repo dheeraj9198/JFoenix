@@ -13,6 +13,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import com.jfoenix.controls.JFXButton;
@@ -28,10 +29,11 @@ public class ListViewDemo extends Application {
 		
 		JFXListView<Label> list = new JFXListView<Label>();		
 		for(int i = 0 ; i < 4 ; i++) list.getItems().add(new Label("Item " + i));
+
 		list.getStyleClass().add("mylistview");
 		
 		ListView<String> javaList = new ListView<String>();
-		for(int i = 0 ; i < 4 ; i++) javaList.getItems().add("Item " + i);
+		for(int i = 0 ; i < 40 ; i++) javaList.getItems().add("Item " + i);
 						
 		FlowPane pane = new FlowPane();
 		pane.setStyle("-fx-background-color:WHITE");

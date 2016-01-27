@@ -17,7 +17,7 @@ public class SpinnerDemo extends Application {
 		StackPane pane = new StackPane();
 		
 		JFXSpinner root = new JFXSpinner();
-		root.setRadius(20);
+		root.setRadius(50);
 		
 		pane.getChildren().add(root);
 		

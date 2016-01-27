@@ -220,7 +220,7 @@ public class JFXListView<T> extends ListView<T> {
 
 	private static final String DEFAULT_STYLE_CLASS = "jfx-list-view";
 
-	private void initialize() {
+	public void initialize() {
 		this.getStyleClass().add(DEFAULT_STYLE_CLASS);
 		expanded.addListener((o,oldVal,newVal)->{
 			if(newVal) expand();
