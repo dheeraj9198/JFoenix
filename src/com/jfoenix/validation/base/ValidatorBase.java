@@ -72,11 +72,9 @@ public abstract class ValidatorBase extends Parent {
 			 * is causing the caret to disapper
 			 */
 			if (!control.getStyleClass().contains(errorStyleClass.get())) {
-				System.out.println("add");
 				control.getStyleClass().add(errorStyleClass.get());
 			}
 		} else{
-			System.out.println("remove");
 			control.getStyleClass().remove(errorStyleClass.get());
 		}
 	}
