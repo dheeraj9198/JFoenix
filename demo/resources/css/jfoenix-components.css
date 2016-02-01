@@ -75,12 +75,14 @@
 
 .jfx-progress-bar > .bar {
 	-fx-min-width: 500;
+	-fx-progress-color: orange;
+
 }
 
 .jfx-progress-bar{
 	-fx-track-color: #C8C8C8 ;
 	-fx-progress-color: #0F9D58;
-	-fx-stroke-width:3;
+	-fx-stroke-width:5;
 }
 
 /* Icons Demo */
@@ -388,8 +390,12 @@
 
 
 .jfx-combo-box .combo-box-button-container {
-	-fx-border-color:rgb(180, 180, 180);	
+	-fx-border-color:rgb(180, 180, 180);
 	-fx-border-width: 0 0 2 0;
+}
+
+.tab-label{
+	-fx-font-family: 'Roboto Bold';
 }
 
 

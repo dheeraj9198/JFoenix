@@ -71,9 +71,12 @@ public abstract class ValidatorBase extends Parent {
 			 * NOTE: NEED TO FIX adding error style class to text area 
 			 * is causing the caret to disapper
 			 */
-			if (!control.getStyleClass().contains(errorStyleClass.get()))
+			if (!control.getStyleClass().contains(errorStyleClass.get())) {
+				System.out.println("add");
 				control.getStyleClass().add(errorStyleClass.get());
+			}
 		} else{
+			System.out.println("remove");
 			control.getStyleClass().remove(errorStyleClass.get());
 		}
 	}

@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 
+import com.jfoenix.validation.base.ValidatorBase;
 import de.jensd.fx.fontawesome.AwesomeIcon;
 import de.jensd.fx.fontawesome.Icon;
 import javafx.application.Application;
@@ -61,7 +62,25 @@ public class TextFieldDemo extends Application {
 		passwordField.focusedProperty().addListener((o,oldVal,newVal)->{
 			if(!newVal) passwordField.validate();
 		});
-		pane.getChildren().add(passwordField);
+
+		JFXPasswordField passwordFieldDheeraj = new JFXPasswordField();
+		passwordFieldDheeraj.setStyle("-fx-label-float:true;");
+		passwordFieldDheeraj.setPromptText("dheeraj");
+
+		Val1 val1 = new Val1(passwordFieldDheeraj);
+		val1.setMessage("one");
+		Val2 val2 = new Val2(passwordFieldDheeraj);
+		val2.setMessage("two");
+
+		passwordFieldDheeraj.getValidators().add(val1);
+		passwordFieldDheeraj.getValidators().add(val2);
+
+		passwordFieldDheeraj.focusedProperty().addListener((o,oldVal,newVal)->{
+			if(!newVal) passwordFieldDheeraj.validate();
+		});
+
+
+		pane.getChildren().add(passwordFieldDheeraj);
 		
 		final Scene scene = new Scene(pane, 600, 400, Color.WHITE);
 		scene.getStylesheets().add(TextFieldDemo.class.getResource("/resources/css/jfoenix-components.css").toExternalForm());
@@ -72,6 +91,45 @@ public class TextFieldDemo extends Application {
 		
 
 	}
+
+	private static class Val1 extends ValidatorBase{
+
+		private JFXPasswordField jfxPasswordField;
+
+		public Val1(JFXPasswordField  jfxPasswordField){
+		this.jfxPasswordField = jfxPasswordField;
+		}
+
+		@Override
+		protected void eval() {
+			System.out.println("val 1 called");
+			if(jfxPasswordField.getText().equals("one")){
+				hasErrors.set(true);
+			}else{
+				hasErrors.set(false);
+			}
+		}
+	}
+
+	private static class Val2 extends ValidatorBase{
+
+		private JFXPasswordField jfxPasswordField;
+
+		public Val2(JFXPasswordField  jfxPasswordField){
+			this.jfxPasswordField = jfxPasswordField;
+		}
+
+		@Override
+		protected void eval() {
+			System.out.println("val 2 called");
+			if(jfxPasswordField.getText().equals("two")){
+				hasErrors.set(true);
+			}else{
+				hasErrors.set(false);
+			}
+		}
+	}
+
 	public static void main(String[] args) { launch(args); }
 
 

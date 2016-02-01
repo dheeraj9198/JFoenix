@@ -23,6 +23,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 
 import com.jfoenix.skins.JFXTabPaneSkin;
+import javafx.scene.text.Font;
 
 /**
  * @author Shadi Shaheen
@@ -31,7 +32,7 @@ import com.jfoenix.skins.JFXTabPaneSkin;
 public class JFXTabPane extends TabPane {
 
 	private static final String DEFAULT_STYLE_CLASS = "jfx-tab-pane";
-
+	private JFXTabPaneSkin jfxTabPaneSkin;
 	public JFXTabPane() {
 		super();
 		initialize();
@@ -39,7 +40,8 @@ public class JFXTabPane extends TabPane {
 
 	@Override
 	protected Skin<?> createDefaultSkin() {
-		return new JFXTabPaneSkin(this);
+		jfxTabPaneSkin = new JFXTabPaneSkin(this);
+		return jfxTabPaneSkin;
 	}
 
 	private void initialize() {

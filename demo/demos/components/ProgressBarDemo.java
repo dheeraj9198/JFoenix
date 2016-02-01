@@ -38,6 +38,7 @@ public class ProgressBarDemo extends Application {
 
 		JFXProgressBar jfxBar = new JFXProgressBar();
 		jfxBar.setPrefWidth(500);
+		jfxBar.setProgress(0.5);
 
 		JFXProgressBar jfxBarInf = new JFXProgressBar();
 		jfxBarInf.setPrefWidth(500);

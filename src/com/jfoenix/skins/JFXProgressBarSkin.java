@@ -39,13 +39,26 @@ import com.sun.javafx.scene.control.skin.BehaviorSkinBase;
  */
 public class JFXProgressBarSkin extends BehaviorSkinBase<ProgressIndicator, BehaviorBase<ProgressIndicator>> {
 
-	private Color indicatorColor = Color.valueOf("#0F9D58"), trackColor = Color.valueOf("#CCCCCC");
+	private Color indicatorColor = Color.valueOf("#FF0000"), trackColor = Color.valueOf("#CCCCCC");
 	private double trackStart, trackLength;
+	private double trackWidth = 3;
 
 	private Line track, bar;
 	private boolean initialization, isIndeterminate;
 
 	private Timeline timeline;
+
+	public void setIndicatorColor(Color indicatorColor){
+		this.indicatorColor  = indicatorColor;
+	}
+
+	public void setTrackColor(Color trackColor){
+		this.trackColor  =trackColor;
+	}
+
+	public void setTrackWidth(double trackWidth){
+		this.trackWidth = trackWidth;
+	}
 
 	public JFXProgressBarSkin(JFXProgressBar bar) {
 		super(bar, new BehaviorBase<ProgressIndicator>(bar, Collections.emptyList()));
@@ -54,10 +67,15 @@ public class JFXProgressBarSkin extends BehaviorSkinBase<ProgressIndicator, Beha
 		bar.requestLayout();
 	}
 
+	public void reinit(){
+		initialize();
+	}
+
+
 	private void initialize() {
 		track = new Line();
 		track.setStroke(trackColor);
-		track.setStrokeWidth(3);
+		track.setStrokeWidth(trackWidth);
 		track.getStyleClass().setAll("track");
 
 		bar = new Line();

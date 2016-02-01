@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import com.jfoenix.controls.JFXButton;
@@ -31,7 +32,6 @@ public class TabsDemo extends Application {
 		Scene scene = new Scene(root, 700, 250);
 
 		JFXTabPane tabPane = new JFXTabPane();
-
 		Tab tab = new Tab();
 		tab.setText(msg);
 		tab.setContent(new Label("Tab 0"));

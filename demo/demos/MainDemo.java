@@ -9,10 +9,14 @@ import io.datafx.controller.flow.container.DefaultFlowContainer;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCharacterCombination;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -26,13 +30,13 @@ public class MainDemo extends Application {
 
 	public void start(Stage stage) throws Exception {
 
-		new Thread(()->{
+		new Thread(() -> {
 			try {
 				SVGGlyphLoader.loadGlyphsFont(MainDemo.class.getResource("/resources/fonts/icomoon.svg"));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}	
+			}
 		}).start();
 
 		Flow flow = new Flow(MainController.class);
@@ -40,10 +44,10 @@ public class MainDemo extends Application {
 		flowContext = new ViewFlowContext();
 		flowContext.register("Stage", stage);
 		flow.createHandler(flowContext).start(container);
-		           JFXDecorator jfxDecorator =new JFXDecorator(stage, container.getView());
-        jfxDecorator.setFullBtnVisible(false);
-        jfxDecorator.getBorderPane().setStyle("-fx-background-color: #039be5");
-        jfxDecorator.getBorderPane().setCenter(new Group(new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/ic_collapse.png")))));
+		JFXDecorator jfxDecorator = new JFXDecorator(stage, container.getView());
+		jfxDecorator.setFullBtnVisible(true);
+		jfxDecorator.getBorderPane().setStyle("-fx-background-color: #039be5");
+		jfxDecorator.getBorderPane().setCenter(new Group(new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/ic_collapse.png")))));
 		Scene scene = new Scene(jfxDecorator, 800, 800);
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-fonts.css").toExternalForm());
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-design.css").toExternalForm());
@@ -55,6 +59,6 @@ public class MainDemo extends Application {
 		stage.setScene(scene);
 		stage.show();
 
-	}
 
+	}
 }

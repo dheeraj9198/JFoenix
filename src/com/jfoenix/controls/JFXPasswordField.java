@@ -92,6 +92,8 @@ public class JFXPasswordField extends PasswordField {
 	}
 
 	public boolean validate() {
+		activeValidator.set(null);
+		pseudoClassStateChanged(PSEUDO_CLASS_ERROR, false);
 		for (ValidatorBase validator : validators) {
 			if (validator.getSrcControl() == null)
 				validator.setSrcControl(this);
