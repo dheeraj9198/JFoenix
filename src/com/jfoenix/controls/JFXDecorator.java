@@ -91,8 +91,9 @@ public class JFXDecorator extends VBox {
     public JFXDecorator(Stage stage, Node node, boolean fullScreen, boolean max, boolean min) {
         super();
         primaryStage = stage;
+        try{
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-
+        }catch (Exception e){}
         setPickOnBounds(false);
         this.getStyleClass().add("jfx-decorator");
 
