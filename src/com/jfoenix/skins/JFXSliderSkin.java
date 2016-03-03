@@ -301,7 +301,7 @@ public class JFXSliderSkin extends BehaviorSkinBase<Slider, SliderBehavior> {
 				if (decimalFormat == null) {
 					value = Math.round(getSkinnable().getValue());
 				} else {
-					value = Double.parseDouble(decimalFormat.format(getSkinnable().getValue()));
+					value =new Double(Double.parseDouble(decimalFormat.format(getSkinnable().getValue()))*100).intValue();
 				}
 
 				sliderValue.setText("" + value);
