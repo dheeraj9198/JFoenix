@@ -44,6 +44,8 @@ public class MainDemo extends Application {
 		flowContext = new ViewFlowContext();
 		flowContext.register("Stage", stage);
 		flow.createHandler(flowContext).start(container);
+		stage.setMinWidth(700);
+		stage.setMinHeight(700);
 		JFXDecorator jfxDecorator = new JFXDecorator(stage, container.getView());
 		jfxDecorator.setFullBtnVisible(true);
 		jfxDecorator.getBorderPane().setStyle("-fx-background-color: #039be5");
@@ -54,8 +56,6 @@ public class MainDemo extends Application {
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-main-demo.css").toExternalForm());
 		//		stage.initStyle(StageStyle.UNDECORATED);
 		//		stage.setFullScreen(true);
-		stage.setMinWidth(700);
-		stage.setMinHeight(700);
 		stage.setScene(scene);
 		stage.show();
 

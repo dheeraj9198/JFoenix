@@ -132,7 +132,7 @@ public class JFXButtonSkin extends ButtonSkin {
 	@Override
 	protected void updateChildren() {
 		super.updateChildren();
-		if (buttonContainer != null) getChildren().add(0,buttonContainer);			
+		if (buttonContainer != null && !getChildren().contains(buttonContainer)) getChildren().add(0,buttonContainer);
 		for(int i = 1 ; i < getChildren().size(); i++)
 			getChildren().get(i).setMouseTransparent(true);
 	}
