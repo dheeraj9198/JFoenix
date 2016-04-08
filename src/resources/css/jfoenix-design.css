@@ -253,9 +253,9 @@
 	-deep-orange-200 : #ffab91; 
 	-deep-orange-300 : #ff8a65; 
 	-deep-orange-400 : #ff7043; 
-	-deep-orange-500 : #ff5722; 
+	-deep-orange-500 : #5b35b1;
 	-deep-orange-600 : #f4511e; 
-	-deep-orange-700 : #e64a19; 
+	-deep-orange-700 : #512BA8;
 	-deep-orange-800 : #d84315; 
 	-deep-orange-900 : #bf360c; 
 	-deep-orange-A100 : #ff9e80; 
@@ -527,9 +527,9 @@
 .deep-orange-200{ -fx-background-color: #ffab91; -fx-text-fill: rgba(0, 0, 0, 0.87); }
 .deep-orange-300{ -fx-background-color: #ff8a65; -fx-text-fill: rgba(0, 0, 0, 0.87); }
 .deep-orange-400{ -fx-background-color: #ff7043; -fx-text-fill: rgba(0, 0, 0, 0.87); }
-.deep-orange-500{ -fx-background-color: #ff5722; -fx-text-fill: #FFF; }
+.deep-orange-500{ -fx-background-color: #5b35b1; -fx-text-fill: #FFF; }
 .deep-orange-600{ -fx-background-color: #f4511e; -fx-text-fill: rgba(255, 255, 255, 0.87); }
-.deep-orange-700{ -fx-background-color: #e64a19; -fx-text-fill: rgba(255, 255, 255, 0.87); }
+.deep-orange-700{ -fx-background-color: #512BA8; -fx-text-fill: rgba(255, 255, 255, 0.87); }
 .deep-orange-800{ -fx-background-color: #d84315; -fx-text-fill: rgba(255, 255, 255, 0.87); }
 .deep-orange-900{ -fx-background-color: #bf360c; -fx-text-fill: rgba(255, 255, 255, 0.87); }
 .deep-orange-A100{ -fx-background-color: #ff9e80; -fx-text-fill: rgba(0, 0, 0, 0.87); }

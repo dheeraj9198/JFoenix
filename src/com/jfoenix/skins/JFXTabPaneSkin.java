@@ -75,7 +75,7 @@ import javafx.util.Duration;
  */
 public class JFXTabPaneSkin extends BehaviorSkinBase<TabPane, TabPaneBehavior> {
 
-    private Color defaultColor = Color.WHITE, ripplerColor = Color.valueOf("#FF5722"), selectedTabText = Color.valueOf("#FF5722"), tempLabelColor = Color.valueOf("#FF5722");
+    private Color defaultColor = Color.WHITE, ripplerColor = Color.valueOf("#5b35b1"), selectedTabText = Color.valueOf("#5b35b1"), tempLabelColor = Color.valueOf("#5b35b1");
     private Color unselectedFontColor = Color.rgb(0,0,0,0.54);
     private HeaderContainer headerContainer;
     private ObservableList<TabContentHolder> tabContentHolders;

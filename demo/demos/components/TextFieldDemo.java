@@ -37,11 +37,13 @@ public class TextFieldDemo extends Application {
 		disabledField.setStyle("-fx-label-float:true;");
 		disabledField.setPromptText("I'm disabled..");
 		disabledField.setDisable(true);
+
 		pane.getChildren().add(disabledField);
 		
 		JFXTextField validationField = new JFXTextField();
 		
 		validationField.setPromptText("With Validation..");
+		validationField.setText("dfhjbsk");
 		RequiredFieldValidator validator = new RequiredFieldValidator();
 		validator.setMessage("Input Required");
 		validator.setIcon(new Icon(AwesomeIcon.WARNING,"1em",";","error"));		

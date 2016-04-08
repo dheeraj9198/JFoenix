@@ -48,7 +48,7 @@ public class MainDemo extends Application {
 		stage.setMinHeight(700);
 		JFXDecorator jfxDecorator = new JFXDecorator(stage, container.getView());
 		jfxDecorator.setFullBtnVisible(true);
-		jfxDecorator.getBorderPane().setStyle("-fx-background-color: #039be5");
+		jfxDecorator.getBorderPane().setStyle("-fx-background-color: #5b35b1");
 		jfxDecorator.getBorderPane().setCenter(new Group(new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/ic_collapse.png")))));
 		Scene scene = new Scene(jfxDecorator, 800, 800);
 		scene.getStylesheets().add(MainDemo.class.getResource("/resources/css/jfoenix-fonts.css").toExternalForm());
